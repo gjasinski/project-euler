@@ -23,22 +23,21 @@ int zwrocNLiczbe(int l, int n)
 int generujLiczbe()
 {
     int liczba=1;
-    int i, iloscLiczb;
+    int i, iloscLiczb, potega;
     i=1;
-    iloscLiczb=0;
+    iloscLiczb=1;
     for (int k=1;k<7;k++)
     {
-        while(iloscLiczb<=pow(10,k))
+        potega=pow(10,k);
+        while(iloscLiczb<potega)
         {
             if(floor(log10(i))!=log10(i))
             iloscLiczb+=floor(log10(i))+1;
             else{
-            iloscLiczb+=floor(log10(i));cout<<i<<"AKAKK"<<endl;}
+            iloscLiczb+=floor(log10(i));}
             i++;
         }
-        cout<<i-1<<"  "<<iloscLiczb-pow(10,k)<<" ";
-        cout<<zwrocNLiczbe(i-1,iloscLiczb-pow(10,k))<<endl;;
-        liczba*=zwrocNLiczbe(i-1,iloscLiczb-pow(10,k));
+        liczba*=zwrocNLiczbe(i-1,iloscLiczb-potega);
     }
     cout<<liczba;
 }
